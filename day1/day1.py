@@ -1,3 +1,5 @@
+import time
+
 class Elf:
     def __init__(self, foodList : list[int], tot : int) -> None:
         self.foodList = foodList
@@ -49,7 +51,8 @@ def quick_sort(array, start, end, compare_func):
     quick_sort(array, p+1, end, compare_func)
 
 if __name__ == '__main__':
-    f = open('input1.txt', 'r')
+    st = time.time()
+    f = open('C:\\git\\adventofcode2022\\day1\\input1.txt', 'r')
     lines = f.readlines()
 
     myList = ElfList([])
@@ -67,3 +70,12 @@ if __name__ == '__main__':
     quick_sort(myList.elfList, 0, len(myList.elfList) -1, lambda x, y: x.tot < y.tot)
     
     print(myList.elfList[0].tot + myList.elfList[1].tot + myList.elfList[2].tot)
+    
+    et = time.time()
+    
+    if (et - st) < 1:
+        rt = str(round((et - st) * 1000,3)) + "ms"
+    else:
+        rt = str(round(et - st,3)) + "s"
+
+    print("runtime: ", rt)

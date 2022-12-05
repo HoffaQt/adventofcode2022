@@ -1,3 +1,5 @@
+import time
+
 roundValue = {
     'A': 1, #Rock
     'B': 2, #Paper
@@ -86,5 +88,16 @@ def part2():
     print(score)
     
 if __name__ == '__main__':
+    st = time.time()
+    
     part1()
     part2()
+    
+    et = time.time()
+
+    if (et - st) < 1:
+        rt = str(round((et - st) * 1000,3)) + "ms"
+    else:
+        rt = str(round(et - st,3)) + "s"
+
+    print("runtime: ", rt)
